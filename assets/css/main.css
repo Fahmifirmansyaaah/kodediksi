@@ -1,8 +1,13 @@
 * {
-  font-family: "inter", sans-serif;
+  font-family: "poppins", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background: rgba(245, 245, 245, 0.6);
+  overflow-x: hidden;
 }
 
 :root {
@@ -25,7 +30,7 @@
   align-items: center;
   padding: 0.5rem 1rem;
   position: sticky;
-  background-color: white;
+  background-color: rgba(245, 245, 245, 0.6);
   top: 0;
   z-index: 1000;
   height: 80px;
@@ -87,36 +92,149 @@
   padding-bottom: 20px;
 }
 
-.cards .card {
-  background-color: #ffff;
+.hero-image {
+  position: relative;
+  background: rgba(245, 245, 245, 0.6);
+}
+
+.hero-section {
+  margin-bottom: 9rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    position: relative;
+    margin-bottom: 12rem;
+    margin-top: 8rem;
+  }
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    /* text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); */
+    border-radius: 1rem;
+    z-index: 2;
+    width: 90%;
+  }
+
+  .hero-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 245, 245, 0.6);
+  }
+  .hero-text h1 span.text-dark {
+    color: black !important; /* ubah teks jadi putih di HP */
+  }
+}
+
+/* layanan */
+.services-section {
+  margin-bottom: 8rem;
+}
+
+.service-title {
   color: black;
-  border: 1px solid color-mix(in srgb, #000, transparent 90%);
-  padding: 40px;
-  border-radius: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
 }
 
-.cards .card span {
-  display: block;
-  font-size: 24px;
-  font-weight: 400;
-  color: #ffc107;
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: default;
+  background: rgba(245, 245, 245, 0.9);
 }
 
-.cards .card h4 {
-  color: color-mix(in srgb, var(--heading-color), transparent 20%);
-  font-size: 24px;
+.icon-circle:hover {
+  transform: scale(1.1);
+}
+
+/* card */
+
+.cards {
+  margin-bottom: 8rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.row > .card {
+  margin-bottom: 30px; /* jarak vertikal antar card */
+  padding: 24px 20px; /* padding dalam card desktop */
+}
+
+/* Nomor di card */
+.card > span {
+  font-weight: 700;
+  font-size: 28px;
+  color: #ff9f00;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* Judul card */
+.card h4 {
   font-weight: 600;
-  padding: 0;
-  margin: 20px 0;
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #222;
 }
 
-.cards .card p {
+/* Paragraf deskripsi */
+.card p {
   font-size: 15px;
-  margin: 0;
-  padding: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Efek hover untuk interaksi */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive font */
+@media (max-width: 767px) {
+  .card {
+    min-height: auto;
+    margin: 12px;
+    padding: 2rem;
+  }
+
+  .row > .card {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    padding: 24px 20px; /* padding dalam card desktop */
+  }
 }
 
 /* portfolio */
+.portfolio {
+  margin-bottom: 4rem;
+}
+
 .portfolio-card {
   border-radius: 16px;
   overflow: hidden;
@@ -198,6 +316,10 @@
 }
 
 /* price */
+.pricing {
+  margin-bottom: 8rem;
+}
+
 .pricing .pricing-item {
   background-color: var(--surface-color);
   padding: 60px 40px;
